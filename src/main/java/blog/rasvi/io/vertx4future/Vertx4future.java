@@ -9,7 +9,7 @@ import io.vertx.ext.web.client.WebClient;
 
 public class Vertx4future {
 
-    public Future<JsonObject> fetchJsonData(WebClient client, String url) {
+    public static Future<JsonObject> fetchJsonData(WebClient client, String url) {
         Future<HttpResponse<Buffer>> future = client.getAbs(url).send();
         return future.map(res -> res.bodyAsJsonObject());
     }
